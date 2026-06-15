@@ -31,6 +31,8 @@ Each node runs the same per-site stack:
 - **Microservices:** `ms-speed`, `ms-direction`, `ms-cruise` (image
   `ms-tod-app:v1`, Debian / `python:3.11-slim`).
 
+More details on testbed can be found at [`ToD Testbed`](https://github.com/hassaanas/tod).
+
 ## 📊 Dataset Specifications
 
 - **Monitoring:** Prometheus telemetry, resampled to a **5-second** step.
@@ -40,7 +42,7 @@ Each node runs the same per-site stack:
   plus CPU and memory growth rates).
 - **Faults:** Synthetic stressors (memory/OOM and CPU) injected with
   `stress-ng` via the companion
-  [`k8s-failure-injection`](../k8s-failure-injection) toolkit — e.g.
+  [`k8s-failure-injection`](https://github.com/hassaanas/k8s-dataset-tod) toolkit — e.g.
   broker-stress and microservice (`ms-apps`) stress sessions.
 - **Labels:** Per-row `true_label` (`0` = normal, `1` = anomaly).
 
@@ -50,7 +52,12 @@ Each node runs the same per-site stack:
 ├── data/
 │   ├── D_nominal.csv          # Telemetry from the nominal-operation collection run
 │   └── D_stressed.csv         # Telemetry from the fault-injection collection runs
-├── LICENSE
+├── datasheet.md               # Datasheet for the dataset (collection, labeling, uses)
+├── CITATION.cff               # Machine-readable citation metadata
+├── requirements.txt           # Python dependencies for the Quick Start / examples
+├── SHA256SUMS                 # Integrity checksums for the data files
+├── LICENSE                    # MIT License (code)
+├── LICENSE-DATA               # CC BY 4.0 License (data)
 └── README.md
 ```
 
@@ -131,4 +138,11 @@ If you use this dataset, please cite:
 
 ## 📄 License
 
-Released under the [MIT License](LICENSE).
+This repository is dual-licensed:
+
+- **Data** (`data/` — `D_nominal.csv`, `D_stressed.csv`): [Creative Commons
+  Attribution 4.0 International (CC BY 4.0)](LICENSE-DATA).
+- **Code** (scripts/examples): [MIT License](LICENSE).
+
+Please attribute the dataset using the references in the
+[Citation](#-citation) section or the `CITATION.cff` file.

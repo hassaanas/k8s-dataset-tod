@@ -1,0 +1,61 @@
+cff-version: 1.2.0
+title: "ToD-K8s-OOD: A Robustness Benchmark for C-V2X Anomaly Detection"
+message: "If you use this dataset, please cite it using these metadata and the references below."
+type: dataset
+authors:
+  - family-names: Siddiqui
+    given-names: Hassaan
+  - family-names: Khendek
+    given-names: Ferhat
+license: CC-BY-4.0
+repository-code: "https://github.com/<OWNER>/k8s-dataset-tod"
+keywords:
+  - anomaly detection
+  - out-of-distribution
+  - benchmark
+  - kubernetes
+  - prometheus
+  - tele-operated driving
+  - C-V2X
+  - cellular IoT
+  - edge computing
+  - fault injection
+references:
+  - type: conference-paper
+    title: "Robustness of ML-Based Anomaly Detection under Distribution Shift in Microservices Based Safety-Critical CIoT"
+    authors:
+      - family-names: Siddiqui
+        given-names: Hassaan
+      - family-names: Khendek
+        given-names: Ferhat
+    collection-title: "17th International Conference on Network of the Future (NoF 2026)"
+    year: 2026
+    location:
+      name: "Italy"
+    notes: "Submitted; not yet published."
+  - type: conference-paper
+    title: "Microservices for Reliable Safety-Critical Cellular IoT Systems — A Case Study"
+    authors:
+      - family-names: Siddiqui
+        given-names: Hassaan
+      - family-names: Khendek
+        given-names: Ferhat
+    collection-title: "GLOBECOM 2024 - 2024 IEEE Global Communications Conference"
+    year: 2024
+    month: 12
+    start: 1455
+    end: 1460
+    doi: "10.1109/GLOBECOM52923.2024.10901455"
+  - type: conference-paper
+    title: "Memory failures in microservices based Cellular IoT systems - An experimental evaluation of service availability"
+    authors:
+      - family-names: Siddiqui
+        given-names: Hassaan
+      - family-names: Khendek
+        given-names: Ferhat
+    collection-title: "2025 IEEE 102nd Vehicular Technology Conference (VTC2025-Fall)"
+    year: 2025
+    month: 10
+    location:
+      name: "Chengdu, China"
+    doi: "10.1109/VTC2025-Fall65116.2025.11309934"
