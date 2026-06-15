@@ -8,7 +8,10 @@ authors:
   - family-names: Khendek
     given-names: Ferhat
 license: CC-BY-4.0
-repository-code: "https://github.com/<OWNER>/k8s-dataset-tod"
+version: 1.0.0
+date-released: 2026-06-14
+url: "https://github.com/hassaanas/k8s-dataset-tod"
+repository-code: "https://github.com/hassaanas/k8s-dataset-tod"
 keywords:
   - anomaly detection
   - out-of-distribution
