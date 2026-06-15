@@ -4,7 +4,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Kubernetes](https://img.shields.io/badge/Orchestrator-MicroK8s-blue.svg)](https://microk8s.io/)
 
-## 📌 Overview
+## Overview
 
 This repository contains the **ToD-K8s-OOD Dataset**, a telemetry collection for
 evaluating Machine Learning anomaly detectors against **Out-of-Distribution
@@ -15,7 +15,7 @@ independent single-node **MicroK8s** cluster running an MQTT broker and a set of
 Python microservices in the `tod` namespace. Faults (memory exhaustion / OOM,
 CPU stress) are injected into these pods to produce the anomalous samples.
 
-## 🖥️ Testbed
+## Testbed
 
 Telemetry is gathered from three nodes (the `node` column in the data):
 
@@ -31,7 +31,9 @@ Each node runs the same per-site stack:
 - **Microservices:** `ms-speed`, `ms-direction`, `ms-cruise` (image
   `ms-tod-app:v1`, Debian / `python:3.11-slim`).
 
-## 📊 Dataset Specifications
+More details on testbed can be found at [`ToD Testbed`](https://github.com/hassaanas/tod).
+
+## Dataset Specifications
 
 - **Monitoring:** Prometheus telemetry, resampled to a **5-second** step.
 - **Telemetry sources:** `broker`, `ms-speed`, `ms-direction`, `ms-cruise` pods
@@ -40,21 +42,26 @@ Each node runs the same per-site stack:
   plus CPU and memory growth rates).
 - **Faults:** Synthetic stressors (memory/OOM and CPU) injected with
   `stress-ng` via the companion
-  [`k8s-failure-injection`](../k8s-failure-injection) toolkit — e.g.
+  [`k8s-failure-injection`](https://github.com/hassaanas/k8s-failure-injection) toolkit — e.g.
   broker-stress and microservice (`ms-apps`) stress sessions.
 - **Labels:** Per-row `true_label` (`0` = normal, `1` = anomaly).
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 ├── data/
 │   ├── D_nominal.csv          # Telemetry from the nominal-operation collection run
 │   └── D_stressed.csv         # Telemetry from the fault-injection collection runs
-├── LICENSE
+├── datasheet.md               # Datasheet for the dataset (collection, labeling, uses)
+├── CITATION.cff               # Machine-readable citation metadata
+├── requirements.txt           # Python dependencies for the Quick Start / examples
+├── SHA256SUMS                 # Integrity checksums for the data files
+├── LICENSE                    # MIT License (code)
+├── LICENSE-DATA               # CC BY 4.0 License (data)
 └── README.md
 ```
 
-## 🧬 Data Schema
+## Data Schema
 
 Both CSVs share the same 11-column layout:
 
@@ -85,7 +92,7 @@ inputs; `timestamp`, `datetime`, `node`, and `pod` are metadata.
 > Both files carry a per-row `true_label`. `D_nominal.csv` is dominated by normal
 > samples; `D_stressed.csv` contains a higher proportion of injected anomalies.
 
-## 🚀 Quick Start
+## Quick Start
 
 ```python
 import pandas as pd
@@ -110,7 +117,11 @@ X_train = nominal[FEATURES]            # baseline distribution
 X_test, y_test = stressed[FEATURES], stressed["true_label"]
 ```
 
-## 📚 Citation
+## Related
+- [Testbed repository](https://github.com/hassaanas/tod)
+- [Fault injection repository](https://github.com/hassaanas/k8s-failure-injection) 
+
+### Citation
 
 If you use this dataset, please cite:
 
@@ -129,6 +140,13 @@ If you use this dataset, please cite:
 > Oct. 2025.
 > doi: [10.1109/VTC2025-Fall65116.2025.11309934](https://doi.org/10.1109/VTC2025-Fall65116.2025.11309934)
 
-## 📄 License
+## License
 
-Released under the [MIT License](LICENSE).
+This repository is dual-licensed:
+
+- **Data** (`data/` — `D_nominal.csv`, `D_stressed.csv`): [Creative Commons
+  Attribution 4.0 International (CC BY 4.0)](LICENSE-DATA).
+- **Code** (scripts/examples): [MIT License](LICENSE).
+
+Please attribute the dataset using the references in the
+[Citation](#-citation) section or the `CITATION.cff` file.

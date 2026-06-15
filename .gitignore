@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*~
+.idea/
+.vscode/
+
+# Windows "mark of the web" alternate-data-stream artifacts
+*:Zone.Identifier
+*Zone.Identifier
+
+# Temp / local artifacts
+*.tmp
+*.log
+*.bak
