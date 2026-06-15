@@ -81,9 +81,7 @@ of the **ToD-K8s-OOD** dataset.
 
 - **How were labels (`true_label`) assigned?**
   Rows collected during nominal operation are labeled `0`; rows collected during
-  active fault-injection windows are labeled `1`. TODO — document the exact
-  rule (e.g., timestamp-window mapping vs. threshold-based) and who/what
-  produced the labels.
+  active fault-injection windows are labeled `1`. More details can be found at [1] (See README *Citation* section).
 
 - **Fault types.** Synthetic stressors injected with `stress-ng` via the
   [`k8s-failure-injection`](https://github.com/hassaanas/k8s-failure-injection) toolkit: memory exhaustion (OOM) and CPU stress targeting the broker and the `ms-*`
